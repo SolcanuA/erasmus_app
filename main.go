@@ -2,11 +2,20 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
+	"log"
+
+	database "github.com/darkykek/database"
 
 	"github.com/gofiber/fiber/v2"
 )
 
 func main() {
+
+	fmt.Println("Initializing database...")
+	database.Init()
+
+	fmt.Println("Creating server instance...")
 	app := fiber.New(fiber.Config{
 		AppName:       "Erasmus Server",
 		CaseSensitive: true,
@@ -16,9 +25,10 @@ func main() {
 		JSONDecoder:   json.Unmarshal,
 	})
 
+	//wildcard path;
 	app.Get("/*", func(c *fiber.Ctx) error {
-		return c.SendString("wildcard path")
+		return c.SendString("init")
 	})
 
-	app.Listen(":8080")
+	log.Fatal(app.Listen(":8080"))
 }

@@ -1,3 +1,8 @@
 *go.
 *.mod
 *.sum
+
+.env
+*.env
+env*
+env
