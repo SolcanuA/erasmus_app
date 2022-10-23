@@ -6,7 +6,6 @@ import (
 	"time"
 
 	"github.com/darkykek/config"
-	"github.com/darkykek/models"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -39,20 +38,9 @@ func Connect() error {
 	courses_collection := db.Collection("courses")
 	videos_collection := db.Collection("videos")
 
-	// dummy data
-	user_create_res, err := users_collection.InsertOne(ctx, models.User{
-		FirstName: "Kek",
-		LastName:  "Lol",
-		Username:  "darky.exe",
-		Email:     "kek@lol.com",
-		Password:  "123kek123lol",
-	})
-
 	if err != nil {
 		log.Fatal("Failed to create user")
 	}
-
-	log.Printf("Address in memory -> %p", &user_create_res)
 
 	Mg = MInstance{
 		Client:            client,
