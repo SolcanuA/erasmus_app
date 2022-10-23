@@ -1,7 +1,17 @@
 package config
 
-import "os"
+import (
+	"log"
+	"os"
 
-func Config(k string) string {
-	return os.Getenv(k)
+	"github.com/joho/godotenv"
+)
+
+func GetKey(key string) string {
+	err := godotenv.Load(".env")
+	if err != nil {
+		log.Fatal("Error loading .env")
+	}
+
+	return os.Getenv(key)
 }
