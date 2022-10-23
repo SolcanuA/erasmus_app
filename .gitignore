@@ -1,6 +1,9 @@
+.vscode
+
 *go.
 *.mod
 *.sum
+
 
 node_modules
 package-lock.json
