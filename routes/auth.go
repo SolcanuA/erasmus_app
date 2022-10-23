@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"github.com/darkykek/handlers"
+	"github.com/darkykek/db/handlers"
 	"github.com/gofiber/fiber/v2"
 )
 
