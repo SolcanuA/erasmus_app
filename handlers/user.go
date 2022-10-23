@@ -29,7 +29,13 @@ func GetUsers(c *fiber.Ctx) error {
 
 func GetUser(c *fiber.Ctx) error {
 	return c.JSON(fiber.Map{
-		"Update": "User",
+		"Get": "User",
+	})
+}
+
+func CreateUser(c *fiber.Ctx) error {
+	return c.JSON(fiber.Map{
+		"Create": "User",
 	})
 }
 
